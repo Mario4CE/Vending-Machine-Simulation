@@ -1,13 +1,14 @@
 
 "Bibliotecas Importadas"
 
-from tkinter import *  #Interfaz
-from tkinter import messagebox #Interfaz
-from tkinter import ttk #tabla de datos
-import os #Imagenes (direcciones de archivos)
-import csv #Formato del documento
-from PIL import Image, ImageTk #Ajusta el tamaño de la imagen
-import time #Pondra la hora
+import csv  # Formato del documento
+import os  # Imagenes (direcciones de archivos)
+import time  # Pondra la hora
+from tkinter import *  # Interfaz
+from tkinter import messagebox  # Interfaz
+from tkinter import ttk  # tabla de datos
+
+from PIL import Image, ImageTk  # Ajusta el tamaño de la imagen
 
 """
 Globales
