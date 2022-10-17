@@ -1,16 +1,16 @@
-1,Coca\Coke,3,15,600,800,66
+1,Coca\Coke,1,15,600,800,68
 2,Pepsi,3,15,500,700,42
-3,Agua\Water,15,15,500,700,5
+3,Agua\Water,12,15,500,700,8
 4,Tropical Frutas,15,15,600,800,14
 5,Power,15,15,800,1000,6
-6,Gatorade,15,15,800,1000,14
+6,Gatorade,9,15,800,1000,20
 7,Jugo de naranja,1,15,500,700,27
-8,Fanta Uva,6,15,600,800,23
+8,Fanta Uva,0,15,600,800,29
 9,Fanta Naranja\Orange Juice,15,15,600,800,8
-10,Sprite,15,15,600,800,13
+10,Sprite,5,15,600,800,23
 11,Takis xplosion,3,15,600,800,38
 12,Takis Fuego,15,15,600,800,13
 13,Pringles Original,15,15,800,1000,0
-14,Pringles Sour crema,15,15,800,1000,30
+14,Pringles Sour crema,1,15,800,1000,44
 15,Snikers,15,15,800,1000,11
 16,Hershey`s,15,15,800,1000,31
