@@ -1,2 +1,3 @@
-# Simulacion-Robot
-A Simulation of a Robot
+# Vending Machine Simulation
+-> This project is about a simulation of a vending machine.
+With forms of payment, sales reports...
