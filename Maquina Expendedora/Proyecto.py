@@ -7,7 +7,6 @@ import time  # Pondra la hora
 from tkinter import *  # Interfaz
 from tkinter import messagebox  # Interfaz
 from tkinter import ttk  # tabla de datos
-
 from PIL import Image, ImageTk  # Ajusta el tamaño de la imagen
 
 """
@@ -399,7 +398,8 @@ E: una contraseña
 R: no hay
 S: la funcion correct
 """
-def Password():    
+def Password():  
+
     bloqueo  = Toplevel(bg ="SteelBlue4")
     bloqueo.geometry("400x300+750+380")
     bloqueo.resizable(width = False, height = False)
@@ -584,6 +584,7 @@ def reporte_resumen():
     tabla.heading("col3", text="Vendidas//Sold", anchor=CENTER)
     tabla.heading("col4", text="Monto//Amount", anchor=CENTER)
     
+
     i = 0
     while i!= len(desglose):
         tabla.insert("", END, text=desglose[i][0], values=(desglose[i][1:]))
@@ -623,7 +624,7 @@ def reporte_detallado():
     tabla.column("col1", width=150,anchor=CENTER)
     tabla.column("col2", width=110,anchor=CENTER)
     tabla.column("col3", width=180,anchor=CENTER)
-    tabla.column("col4", width=130,anchor=CENTER)
+    tabla.column("col4", width=150,anchor=CENTER)
     tabla.column("col5", width=100,anchor=CENTER)
     
     tabla.heading("#0", text="Codigo//Code", anchor=CENTER)
@@ -633,13 +634,14 @@ def reporte_detallado():
     tabla.heading("col4", text="Fecha//Date", anchor=CENTER)
     tabla.heading("col5", text="Monto//Amount", anchor=CENTER)
     
+
     i = 0
     while i!= len(datos):
         tabla.insert("", END, text=datos[i][0], values=(datos[i][1:]))
         i += 1
 
     tabla.pack()
-    tabla.place(x=10,y=100)
+    tabla.place(x=5,y=100)
 
     detalle.mainloop()
 
@@ -721,7 +723,7 @@ def ingresar_dato(n,codigo):
         if  n <= 15 and codigo <= 16 :
              return producto(n, codigo, 0)
         else:
-            messagebox.showinfo( "Error","El numero de productos debe ser menor a\n"
+            messagebox.showerror( "Error","El numero de productos debe ser menor a\n"
                                   "16,el codigo debe ser entre 1 a 16"
                                  "\n\nThe number of products must be less"
                                  "than 1, the code must be between 1 to 16")
@@ -735,12 +737,17 @@ S: Sì hay productos suficientes
 """
 def producto(n,codigo,indice):
     if indice == len(productos):
-         messagebox.showinfo("Error","El producto no esta en la maquina\n\n"
+         messagebox.showerror("Error","El producto no esta en la maquina\n\n"
                              "The product is not in the machine")
          return False,False,-1
-    elif str(codigo) == productos[indice][0] and int(productos[indice][2]) < n:
-        messagebox.showinfo("Producto agotado//Sold out","Ya no quedan productos a la venta\n\n"
+
+    elif str(codigo) == productos[indice][0] and int(productos[indice][2]) == 0:
+        messagebox.showerror("Producto agotado//Sold out","Ya no quedan productos a la venta\n\n"
                             "There are no more products for sale")
+    
+    elif str(codigo) == productos[indice][0] and int(productos[indice][2]) < n:
+        messagebox.showerror("Error","Solo quedan "+productos[indice][2]+"\n\n"
+                            "Only left "+productos[indice][2])
         return True,False,indice
     elif str(codigo) == productos[indice][0] and int(productos[indice][2]) >= n:
         total(n,codigo,0,n)
@@ -776,7 +783,7 @@ E: numeros enteros
 """
 def vuelto(vuelto,codigo,cantidad,Dinero100,Dinero500,Dinero1000,Dinero2000,devolver,pago,debe):
     if vuelto < 0:
-        messagebox.showinfo("Error", "Aun nos terminado de pagar\n\n"
+        messagebox.showerror("Error", "Aun nos terminado de pagar\n\n"
                             "You haven't finished paying yet")
         return "Error, no se ha terminado de pagar"
     elif vuelto == 0:
@@ -841,11 +848,11 @@ def vuelto_aux(vuelto,codigo,n, mil, dosmil, quinientos, cien, total,devolver,pa
     elif vuelto != 0 and vuelto >= 100 and int(dinero[0][2]) >= 1 :
         return vuelto_aux(vuelto - 100, codigo,n, mil, dosmil, quinientos, cien + 1, total,devolver,pago,debe)
     elif vuelto != 0 and vuelto >= 100 and int(dinero[0][2]) < 1 :
-        messagebox.showinfo("Error","No hay vuelto suficiente\n\n"
+        messagebox.showerror("Error","No hay vuelto suficiente\n\n"
                             "There is not enough return")
         return "Error, no hay vuelto suficiente"
     else:
-        messagebox.showinfo("Error","Algo salio mal\n\n"
+        messagebox.showerror("Error","Algo salio mal\n\n"
                             "Something went wrong")
         return "Error, algo sucedio con el vuelto"
     
