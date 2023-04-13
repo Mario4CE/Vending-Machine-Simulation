@@ -1,4 +1,0 @@
-Version de python 3.10
-
-Bibliotecas instaladas: Tkinter
-
